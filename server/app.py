@@ -1,4 +1,4 @@
-from Models.Users import User
+from models import User
 from flask import Flask, request, make_response, jsonify
 from flask_migrate import Migrate
 from flask_restful import Resource, Api
@@ -6,18 +6,18 @@ from flask_jwt_extended import JWTManager, create_access_token
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from marshmallow import fields
-from Models.Config import db
-from Models.Attempts import Attempts
-from Models.Choices import Choice
-from Models.Profile import Profile
-from Models.Questions import Question
-from Models.Response import Response
+from models import db
+from models import Attempts
+from models import Choice
+from models import Profile
+from models import Question
+from models import Response
 from flask_cors import CORS
 
 
 app=Flask(__name__)
 CORS(app)
-app.config["SQLALCHEMY_DATABASE_URI"]='sqlite:///survey.db'
+app.config["SQLALCHEMY_DATABASE_URI"]='sqlite:///db.sqlite'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False
 app.config["JWT_SECRET_KEY"]="rhucvjehuhevytguhccvytvuegctvwetvwvgvsc38yi32uy"
 app.json.compact=False
